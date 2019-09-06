@@ -60,7 +60,7 @@ end
    #my_count
    def my_count
     count = 0
-    self.my_each do |0|
+    self.my_each do |i|
         count += 1 if yield i == true
     end
      count
@@ -69,7 +69,7 @@ end
    def my_map     
     arr = []
     self.my_each do |i|
-     arr << yield i
+     arr << yield(i)
     end
   arr 
 end
@@ -83,22 +83,19 @@ end
 
 end
 
-   #multiply_els
+#multiply_els
 
 
-   #my_map method to take a proc instead
-   def my_map(proc=nil)
+#my_map method to take a proc instead
+def my_map(proc=nil)
         
     arr = []
     if proc != nil 
     self.my_each do |i|
      arr.push(proc.call i) 
-    
-    else
-    self.my_each do |i|
-     arr.push(yield(i)) 
     end
-  arr 
-  end
-   #my_map method to take either a proc or a block
-   
+    self.my_each do |i|
+     arr << yield(i) 
+    end
+ arr 
+end

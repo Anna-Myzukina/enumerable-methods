@@ -1,1 +1,3 @@
-require_relative 'enumerable_methods'
+# frozen_string_literal: true
+
+require './enumerable_methods'
