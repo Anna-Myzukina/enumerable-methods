@@ -13,25 +13,25 @@ Project 2: Enumerable Methods from [the odin project](https://www.theodinproject
 
 * Create next methods:
   1. Create #my_each, a method that is identical to [#each](https://ruby-doc.org/core-2.6.4/Array.html#method-i-each) but (obviously) does not use #each. You’ll need to remember the yield statement. Make sure it returns the same thing as #each as well.
-   * Note: #each is an iterator method that comes pre-packaged with the Array and Hash and Range classes and it basically just goes through each item in the object you called it on 
+    * Note: #each is an iterator method that comes pre-packaged with the Array and Hash and Range classes and it basically just goes through each item in the object you called it on 
 and passes it to the block that you specified. It will return the original collection that it was called on
 
         > [1,2,3].each { |num| print "#{num}! " }
         1! 2! 3! => [1,2,3]
   1. Create #my_each_with_index in the same way.
-   * Note: If you want to know what position in the array you are #each_with_index will pass that position into the block as well
+    * Note: If you want to know what position in the array you are #each_with_index will pass that position into the block as well
 
         > ["Cool", "chicken!", "beans!", "beef!"].each_with_index do |item, index|
         >   print "#{item} " if index%2==0
         > end
         Cool beans! => ["Cool", "chicken!", "beans!", "beef!"]
   1. Create #my_select in the same way, though you may use #my_each in your definition (but not #each).
-   * Note: Enumerable's #select will run the block on every item of your object (whether array or hash or whatever) and return a new object that contains only those items for which the original block returned true
+    * Note: Enumerable's #select will run the block on every item of your object (whether array or hash or whatever) and return a new object that contains only those items for which the original block returned true
 
         > my_array.select{|item| item%2==0 }
         => [2,4,6,8,100]      # wow, that was easy.
   1. Create #my_all? (continue as above)
-   * Note: method #all? returns true/false and answers the question, "do ALL the elements of this object pass the test in my block?". Every time the block runs it must return true for this method to return true.
+    * Note: method #all? returns true/false and answers the question, "do ALL the elements of this object pass the test in my block?". Every time the block runs it must return true for this method to return true.
   1. Create #my_any?
    * Note: method #any? returns true/false (see the question mark?) and answers the question, "do ANY of the elements in this object pass the test in my block?". If your block returns true on any time it runs, any? will return true.
   1. Create #my_none?
