@@ -65,6 +65,7 @@ end
     end
      count
 end
+
    #my_map
    def my_map     
     arr = []
@@ -73,14 +74,14 @@ end
     end
   arr 
 end
+
    #my_inject
    def my_inject(value)
     self.my_each do |i| 
     value = yield(value, i)
     end
-value
-end  
-
+  value
+ end
 end
 
 #multiply_els
