@@ -5,11 +5,11 @@ Project 2: Enumerable Methods from [the odin project](https://www.theodinproject
 1. Add our new methods onto the existing Enumerable module:
 *  Example:
 
-  module Enumerable
-    def my_each
-      # your code here
-    end
-  end
+        module Enumerable
+          def my_each
+            # your code here
+          end
+        end
 
 1. Create #my_each, a method that is identical to [#each](https://ruby-doc.org/core-2.6.4/Array.html#method-i-each) but (obviously) does not use #each. You’ll need to remember the yield statement. Make sure it returns the same thing as #each as well.
 *  Note: #each is an iterator method that comes pre-packaged with the Array and Hash and Range classes and it basically just goes through each item in the object you called it on 
