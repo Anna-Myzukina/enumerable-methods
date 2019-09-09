@@ -11,6 +11,16 @@ Project 2: Enumerable Methods from [the odin project](https://www.theodinproject
           end
         end
 
+### Quick Tips:
+
+* Remember yield and the #call method.
+
+### Before writing your method, you need to decide on three things:
+
+1. What will the method be called?
+1. What method will have input parameters?
+1. What will the method return?
+
 ### Create next methods:
 1. Create #my_each, a method that is identical to [#each](https://ruby-doc.org/core-2.6.4/Array.html#method-i-each) but (obviously) does not use #each. You’ll need to remember the yield statement. Make sure it returns the same thing as #each as well.
     * Note: [#each](https://ruby-doc.org/core-2.4.1/Hash.html#method-i-each) is an iterator method that comes pre-packaged with the Array and Hash and Range classes and it basically just goes through each item in the object you called it on 
@@ -50,16 +60,6 @@ method #collect will run your block and give you an object filled with whatever 
 1. Test your #my_inject by creating a method called #multiply_els which multiplies all the elements of the array together by using #my_inject, e.g. multiply_els([2,4,5]) #=> 40
 1. Modify your #my_map method to take a [proc](https://www.rubydoc.info/stdlib/core/Proc) instead.[A Proc object in ruby doc](https://ruby-doc.org/core-2.6.4/Proc.html)
 1. Modify your #my_map method to take either a proc or a block. It won’t be necessary to apply both a proc and a block in the same #my_map call since you could get the same effect by chaining together one #my_map call with the block and one with the proc. This approach is also clearer, since the user doesn’t have to remember whether the proc or block will be run first. So if both a proc and a block are given, only execute the proc.
-
-### Quick Tips:
-
-Remember yield and the #call method.
-
-### Before writing your method, you need to decide on three things:
-
-1. What will the method be called?
-1. What method will have input parameters?
-1. What will the method return?
 
 ## Author :
 *  [Anna-Myzukina](https://github.com/Anna-Myzukina)
