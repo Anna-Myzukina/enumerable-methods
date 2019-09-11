@@ -3,9 +3,9 @@
 module Enumerable
   def my_each
     i = 0
-    while i < self.size
-        yield(self[i])  
-        i+=1      
+    while i < size
+      yield(self[i])
+      i += 1
     end
     self
   end
@@ -20,71 +20,70 @@ module Enumerable
 
   def my_select
     array = []
-       self.my_each do |i|
-           if yield(i)
-               array << i
-           end
-        end
+    my_each do |i|
+      array << i if yield(i)
+    end
     array
   end
 
-  def my_all? 
-    self.my_each do|i|
-    unless yield i
-        return false
-    end    
-  true
+  def my_all?
+    obj = self
+    obj.my_each do |i|
+      return false unless yield i
+      end
+      true
+    end
   end
 
   def my_any?
-    self.my_each do |i|
-    if yield i
-        return true
-    end 
-  false
-  end    
-  
-  def my_none?
-    self.my_each do |i|
-    if yield i
-        return false
-    end    
-  true
+    my_each do |i|
+      return true if yield i
+      end
+    end
   end
 
+  def my_none?
+    my_each do |i|
+      return false if yield i
+      end
+    end
+    true
+  end
+  
   def my_count
     count = 0
-    self.my_each do |i|
-        count += 1 if yield i == true
+    my_each do |_i|
+      count += 1
     end
-  count
+    count
   end
 
-  def my_map     
+  def my_map
     arr = []
-    self.my_each do |i|
-     arr << yield(i)
+    my_each do |i|
+      arr << yield(i)
     end
-  arr 
+    arr
   end
 
   def my_inject(value)
-    self.my_each do |i| 
-    value = yield(value, i)
+    my_each do |i|
+      value = yield(value, i)
     end
-  value
+    value
   end
 
-  def my_map(proc=nil)    
+  def my_map(proc = nil)
     arr = []
-    if proc != nil 
-      self.my_each do |i|
-        arr.push(proc.call i) 
+    unless proc.nil?
+      my_each do |i|
+        arr.push(proc.call(i))
       end
-      self.my_each do |i|
+      my_each do |i|
         arr << yield(i)
       end
-    arr
+      arr
+    end
   end
+
 end
- 
