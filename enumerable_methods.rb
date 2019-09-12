@@ -61,8 +61,7 @@ module Enumerable
     elsif !pattern.nil?
       if pattern.is_a? Regexp
         my_each { |i| return false if pattern =~ i }
-      elsif
-        my_each { |i| return false if i.is_a?(pattern) }
+      elsif my_each { |i| return false if i.is_a?(pattern) }
       end
     else
       my_each { |i| return false if i == pattern }
