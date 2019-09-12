@@ -27,13 +27,13 @@ module Enumerable
 
   def my_all?(pattern = nil)
     if block_given?
-      my_each { |i| return false unless yield i }
-    elsif !pattern.nil?
-      if pattern.is_a? Regexp
-        my_each { |i| return false unless pattern =~ i }
-      else
-        my_each { |i| return false unless i.is_a?(pattern) }
-      end
+      my_each { |i| return false unless yield(i) }
+    elsif pattern.class == Class
+      my_each { |i| return false unless i.class == pattern }
+    elsif pattern.class == Regexp
+      my_each { |i| return false unless (i =~ pattern).is_a? Integer }
+    elsif pattern.nil?
+      my_each { |i| return false unless i }
     else
       my_each { |i| return false unless i == pattern }
     end
@@ -58,11 +58,12 @@ module Enumerable
   def my_none?(pattern = nil)
     if block_given?
       my_each { |i| return false if yield(i) }
-    elsif !pattern.nil?
-      if pattern.is_a? Regexp
-        my_each { |i| return false if pattern =~ i }
-      elsif my_each { |i| return false if i.is_a?(pattern) }
-      end
+    elsif pattern.class == Class
+      my_each { |i| return false if i.class == pattern }
+    elsif pattern.class == Regexp
+      my_each { |i| return false if (i =~ pattern).is_a? Integer }
+    elsif pattern.nil?
+      my_each { |i| return false if i }
     else
       my_each { |i| return false if i == pattern }
     end
