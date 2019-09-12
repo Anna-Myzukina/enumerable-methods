@@ -96,15 +96,17 @@ module Enumerable
     new_arr
   end
 
-  def my_inject(arg = nil)
-    my_each_with_index do |p, i|
-      if i.zero? && arg.nil?
-        arg = p
-        next
-      end
-      arg = yield(arg, p)
+  def my_inject(*args)
+    memo = args[0].nil? || args[0].class == Symbol ? 0 : args[0]
+    symbol = args[0].class == Symbol ? args[0] : args[1].class == Symbol ? args[1] : nil
+    my_each do |elem|
+      memo = if symbol
+               memo.send(symbol, elem)
+             else
+               yield(memo, elem)
+             end
     end
-    arg
+    memo
   end
 
   def multiply_else(arr)
