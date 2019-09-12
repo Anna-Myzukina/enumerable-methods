@@ -97,16 +97,20 @@ module Enumerable
   end
 
   def my_inject(*args)
-    if args[0].nil? || args[0].class == Symbol
-      memo = 0
-    elsif args[0].nil? || args[0].class != Symbol
-      memo = args[0]
-    elsif args[0].class == Symbol
+    arr = to_a.dup
+    if args[0].nil?
+      memo = arr.shift
+    elsif args[1].nil? && !block_given?
       symbol = args[0]
-    elsif args[1].class != Symbol
+      memo = arr.shift
+    elsif args[1].nil? && block_given?
+      memo = args[0]
+    else
+      memo = args[0]
       symbol = args[1]
     end
-    my_each do |elem|
+
+    arr[0..-1].my_each do |elem|
       memo = if symbol
                memo.send(symbol, elem)
              else
