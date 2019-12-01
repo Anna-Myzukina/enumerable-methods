@@ -1,5 +1,8 @@
 # enumerable-methods
 Project 2: Enumerable Methods from [the odin project](https://www.theodinproject.com/courses/ruby-programming/lessons/advanced-building-blocks?ref=lnav#assignment-2)
+
+
+### [The RSpec Style Guide](https://github.com/rubocop-hq/rspec-style-guide#let-blocks)
 * Our task is :
 1. Create a script file enumerable_method.rb with our methods and run it in IRB to test them later.
 1. Add our new methods onto the existing Enumerable module:
