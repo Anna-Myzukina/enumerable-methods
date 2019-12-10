@@ -13,6 +13,11 @@ Project 2: Enumerable Methods from [the odin project](https://www.theodinproject
             # your code here
           end
         end
+        
+        
+  * use this to run code in terminal
+  
+    irb
 
 ### Quick Tips:
 
